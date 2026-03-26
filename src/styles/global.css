@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "SpaceGrotesk-Light";
+  src: url("/fonts/space-grotesk/SpaceGrotesk-Light.woff2") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SpaceGrotesk";
+  src: url("/fonts/space-grotesk/SpaceGrotesk-Regular.woff2") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SpaceGrotesk-SemiBold";
+  src: url("/fonts/space-grotesk/SpaceGrotesk-SemiBold.woff2") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SpaceGrotesk-Bold";
+  src: url("/fonts/space-grotesk/SpaceGrotesk-Bold.woff2") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --spacegrotesk-light: "SpaceGrotesk-Light", "sans-serif", "system-ui";
+  --spacegrotesk: "SpaceGrotesk", "sans-serif", "system-ui";
+  --spacegrotesk-semibold: "SpaceGrotesk-Semibold", "sans-serif", "system-ui";
+  --spacegrotesk-bold: "SpaceGrotesk-Bold", "sans-serif", "system-ui";
+
+  --background: #404040;
+
+  --theme-black: #404040;
+  --theme-gray: #f3eae3;
+  --theme-orange: #d36f59;
+  --theme-orange-hover: #ea7a61;
+
+  --font-black: #404040;
+  --font-gray: #f3eae3;
+  --font-orange: #d36f59;
+
+  --error: #e62727;
+  --success: #8aa624;
+}
+
+@theme inline {
+  --font-spacegrotesk-light: var(--spacegrotesk-light);
+  --font-spacegrotesk: var(--spacegrotesk);
+  --font-spacegrotesk-semibold: var(--spacegrotesk-semibold);
+  --font-spacegrotesk-bold: var(--spacegrotesk-bold);
+
+  --color-backround: var(--backround);
+
+  --color-theme-black: var(--theme-black);
+  --color-theme-gray: var(--theme-gray);
+  --color-theme-orange: var(--theme-orange);
+  --color-theme-orange-hover: var(--theme-orange-hover);
+
+  --color-font-black: var(--font-black);
+  --color-font-gray: var(--font-gray);
+  --color-font-orange: var(--font-orange);
+
+  --color-error: var(--error);
+  --color-success: var(--success);
+}
+
+body {
+  /* font-family: var(--spacegrotesk), sans-serif; */
+  background-color: var(--background);
+  color: var(--font-gray);
+}
+
+section,
+.padding-container {
+  padding: 20px;
+}
