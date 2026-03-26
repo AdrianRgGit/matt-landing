@@ -1,0 +1,9 @@
+.hero {
+  position: relative;
+}
+
+.text-reveal {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
