@@ -19,27 +19,50 @@ export default function BenefitCard({
 }: BenefitCardProps) {
   const cardRef = useRef<HTMLButtonElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
-  const imageRef = useRef<HTMLImageElement>(null);
+  const imageWrapperRef = useRef<HTMLDivElement>(null);
+  const hasMountedRef = useRef(false);
 
   useGSAP(
     () => {
-      if (!titleRef.current || !imageRef.current) return;
+      if (!titleRef.current || !imageWrapperRef.current) return;
 
-      // Imagen crece / encoge
-      gsap.to(imageRef.current, {
-        width: isActive ? "100%" : "80%",
-        scale: isActive ? 1.05 : 1,
-        duration: 0.45,
-        ease: "power3.out",
-      });
+      const isDesktop = window.innerWidth >= 1280;
+      const collapsedWidth = isDesktop ? "70%" : "80%";
+      const expandedWidth = "100%";
+      const imageWrapper = imageWrapperRef.current;
+      const titleEl = titleRef.current;
 
-      // Texto desaparece / aparece
-      gsap.to(titleRef.current, {
-        opacity: isActive ? 0 : 1,
-        y: isActive ? 16 : 0,
-        duration: 0.3,
-        ease: "power2.out",
-      });
+      const duration = hasMountedRef.current ? 0.45 : 0;
+
+      gsap.fromTo(
+        imageWrapper,
+        {
+          width: isActive ? collapsedWidth : expandedWidth,
+        },
+        {
+          width: isActive ? expandedWidth : collapsedWidth,
+          duration,
+          ease: "power3.out",
+          overwrite: "auto",
+        },
+      );
+
+      gsap.fromTo(
+        titleEl,
+        {
+          opacity: isActive ? 1 : 0,
+          y: isActive ? 0 : 16,
+        },
+        {
+          opacity: isActive ? 0 : 1,
+          y: isActive ? 16 : 0,
+          duration: hasMountedRef.current ? 0.3 : 0,
+          ease: "power2.out",
+          overwrite: "auto",
+        },
+      );
+
+      hasMountedRef.current = true;
     },
     { dependencies: [isActive], scope: cardRef },
   );
@@ -49,21 +72,21 @@ export default function BenefitCard({
       ref={cardRef}
       type="button"
       onClick={onToggle}
-      className="relative w-full h-40 cursor-pointer overflow-hidden text-left"
+      className="relative h-40 w-full cursor-pointer overflow-hidden text-left xl:h-60"
     >
       <h3
         ref={titleRef}
-        className="absolute bottom-2.5 left-0 z-10 text-3xl text-font-white mix-blend-difference"
+        className="absolute bottom-2.5 left-0 z-10 text-3xl text-font-white mix-blend-difference xl:text-5xl"
       >
         {title}
       </h3>
 
-      <img
-        ref={imageRef}
-        src={src}
-        alt={alt}
-        className="ml-auto h-full w-[80%] object-cover"
-      />
+      <div
+        ref={imageWrapperRef}
+        className="ml-auto h-full w-[80%] overflow-hidden xl:w-[70%]"
+      >
+        <img src={src} alt={alt} className="h-full w-full object-cover" />
+      </div>
     </button>
   );
 }
