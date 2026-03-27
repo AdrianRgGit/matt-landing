@@ -27,7 +27,7 @@ export default function BenefitsCardsWrapper() {
   ];
 
   return (
-    <div className="space-y-5">
+    <div className="gap-5 flex flex-col justify-between">
       {cards.map((card, index) => (
         <BenefitCard
           key={index}

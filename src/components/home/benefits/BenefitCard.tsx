@@ -72,7 +72,7 @@ export default function BenefitCard({
       ref={cardRef}
       type="button"
       onClick={onToggle}
-      className="relative h-40 w-full cursor-pointer overflow-hidden text-left xl:h-60"
+      className="relative h-40 w-full cursor-pointer overflow-hidden text-left xl:h-48"
     >
       <h3
         ref={titleRef}
