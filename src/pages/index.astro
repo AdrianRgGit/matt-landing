@@ -1,8 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Hero from "../components/home/hero/Hero.astro";
+import Hero from "../components/home/hero/Hero";
 ---
 
 <Layout>
-  <Hero />
+  <Hero client:load />
+
+  <section class="min-h-screen">
+    <h2>Hola</h2>
+  </section>
 </Layout>
