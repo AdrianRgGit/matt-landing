@@ -120,7 +120,7 @@ export default function Hero() {
 
       <div
         ref={videoContainerRef}
-        className="absolute top-1/2 right-10 w-[56.25rem] h-[31.25rem] -translate-y-1/2"
+        className="absolute top-1/2 right-10 w-225 h-125 -translate-y-1/2"
       >
         <video
           ref={videoRef}
