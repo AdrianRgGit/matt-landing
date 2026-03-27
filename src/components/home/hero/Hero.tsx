@@ -217,7 +217,7 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-svh overflow-hidden bg-theme-white opacity-0 xl:container xl:mx-auto"
+      className="relative min-h-svh overflow-hidden bg-theme-white opacity-0"
     >
       <div
         ref={textRef}
