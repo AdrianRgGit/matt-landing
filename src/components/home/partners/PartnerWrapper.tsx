@@ -90,14 +90,12 @@ export default function PartnerWrapper({
         },
       });
 
-      // Fase 1: scroll partners
       tl.to(
         partnerCards,
         { y: `-=${partnerTravel}`, ease: "none", stagger: 0, duration: 1.8 },
         0,
       );
 
-      // Fase 2: transición de títulos + swap de arrays
       tl.to(
         partneringTitleRef.current,
         {
@@ -112,7 +110,7 @@ export default function PartnerWrapper({
           membersTitleRef.current,
           {
             scale: membersScaleUp,
-            y: -(membersBig - membersSmall) * 1.2, // sube aprox. la diferencia de altura
+            y: -(membersBig - membersSmall) * 1.2,
             transformOrigin: "left top",
             duration: 0.5,
             ease: "power2.inOut",
@@ -130,7 +128,6 @@ export default function PartnerWrapper({
           1.5,
         );
 
-      // Fase 3: scroll members
       tl.to(
         memberCards,
         { y: `-=${memberTravel}`, ease: "none", stagger: 0, duration: 1.8 },
@@ -145,7 +142,6 @@ export default function PartnerWrapper({
 
   return (
     <div ref={sectionRef} className="contents">
-      {/* Mitad izquierda: títulos */}
       <div className="relative shrink-0 z-10 xl:mx-auto xl:mt-32 w-fit overflow-hidden">
         <h3
           ref={partneringTitleRef}
@@ -163,9 +159,7 @@ export default function PartnerWrapper({
         </h3>
       </div>
 
-      {/* Mitad derecha: cards */}
       <div className="w-full relative shrink-0 xl:w-[70%] xl:ml-auto xl:mr-16 overflow-hidden">
-        {/* Array 1: Partners */}
         <div ref={partnersWrapRef} className="absolute inset-0">
           <div className="relative w-full h-full">
             {partnerItems.map((item, i) => (
@@ -180,7 +174,6 @@ export default function PartnerWrapper({
           </div>
         </div>
 
-        {/* Array 2: Members */}
         <div ref={membersWrapRef} className="absolute inset-0">
           <div className="relative w-full h-full">
             {memberItems.map((item, i) => (
