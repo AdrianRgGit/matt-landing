@@ -19,13 +19,7 @@ export default function NameTag({
       onMouseEnter={onActivate}
       onClick={onActivate}
     >
-      <p
-        className={`xl:order-2 xl:text-5xl transition-all duration-300 ${
-          isActive ? "text-2xl xl:text-5xl" : "text-xl xl:text-3xl"
-        }`}
-      >
-        {name}
-      </p>
+      <p className="text-2xl xl:order-2 xl:text-5xl">{name}</p>
       <small className="xl:order-1 xl:text-xl">{role}</small>
     </div>
   );
