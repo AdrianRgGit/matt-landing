@@ -1,10 +1,20 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import CustomButton from "../ui/customButton/CustomButton";
 
+const sections = [
+  { id: "intro", label: "Intro" },
+  { id: "solution", label: "Solution" },
+  { id: "advantages", label: "Advantages" },
+  { id: "value", label: "Value" },
+  { id: "partners", label: "Partners" },
+  { id: "aboutus", label: "About" },
+];
+
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
+  const [currentSection, setCurrentSection] = useState("Intro");
 
   const overlayRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -12,6 +22,7 @@ export default function Nav() {
   const logoRef = useRef<HTMLDivElement>(null);
   const pillRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const currentSectionRef = useRef<HTMLParagraphElement>(null);
 
   useGSAP(
     () => {
@@ -75,7 +86,7 @@ export default function Nav() {
 
         gsap.fromTo(
           menuItems,
-          { opacity: 0, y: 12 },
+          { opacity: 0, y: -10 },
           {
             opacity: 1,
             y: 0,
@@ -108,7 +119,7 @@ export default function Nav() {
       } else {
         gsap.to(menuItems, {
           opacity: 0,
-          y: 8,
+          y: -6,
           duration: 0.2,
           ease: "power2.in",
           stagger: 0.02,
@@ -166,9 +177,71 @@ export default function Nav() {
     { dependencies: [isOpen] },
   );
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntry = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (!visibleEntry) return;
+
+        const activeSection = sections.find(
+          (section) => section.id === visibleEntry.target.id,
+        );
+
+        if (!activeSection || activeSection.label === currentSection) return;
+
+        if (currentSectionRef.current) {
+          gsap.to(currentSectionRef.current, {
+            opacity: 0,
+            y: 6,
+            duration: 0.14,
+            ease: "power2.in",
+            onComplete: () => {
+              setCurrentSection(activeSection.label);
+            },
+          });
+        } else {
+          setCurrentSection(activeSection.label);
+        }
+      },
+      {
+        root: null,
+        rootMargin: "-40% 0px -40% 0px",
+        threshold: [0.2, 0.4, 0.6, 0.8],
+      },
+    );
+
+    sections.forEach((section) => {
+      const element = document.getElementById(section.id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, [currentSection]);
+
+  useEffect(() => {
+    if (!currentSectionRef.current) return;
+
+    gsap.fromTo(
+      currentSectionRef.current,
+      {
+        opacity: 0,
+        y: -6,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.22,
+        ease: "power2.out",
+      },
+    );
+  }, [currentSection]);
+
   return (
     <>
-      {/* Overlay siempre montado */}
+      {/* Overlay */}
       <div
         ref={overlayRef}
         onClick={() => setIsOpen(false)}
@@ -195,9 +268,6 @@ export default function Nav() {
           <nav className="flex flex-col gap-y-2.5 ml-2.5 text-2xl">
             <a href="#intro" onClick={() => setIsOpen(false)}>
               Intro
-            </a>
-            <a href="#problem" onClick={() => setIsOpen(false)}>
-              Problem
             </a>
             <a href="#solution" onClick={() => setIsOpen(false)}>
               Solution
@@ -232,7 +302,16 @@ export default function Nav() {
           className="h-14 w-80 px-2.5 rounded-lg bg-theme-white/80 backdrop-blur-sm cursor-pointer flex justify-between items-center"
         >
           <div className="h-7 w-7 border-4 border-theme-white rounded-lg" />
-          <p className="font-spacegrotesk-light">Intro</p>
+
+          <div className="relative h-6 overflow-hidden flex items-center justify-center">
+            <p
+              ref={currentSectionRef}
+              className="font-spacegrotesk-light whitespace-nowrap"
+            >
+              {currentSection}
+            </p>
+          </div>
+
           <div className="h-7 w-7 border-4 border-theme-white rounded-lg" />
         </button>
       </div>
