@@ -22,7 +22,7 @@ export default function PartnerWrapper({
 
   useGSAP(
     () => {
-      const section = document.getElementById("partners-section");
+      const section = document.getElementById("partners");
       if (
         !section ||
         !partnersWrapRef.current ||

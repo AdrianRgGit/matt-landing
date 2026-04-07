@@ -216,6 +216,7 @@ export default function Hero() {
 
   return (
     <section
+      id="intro"
       ref={sectionRef}
       className="relative min-h-svh overflow-hidden bg-theme-white opacity-0"
     >
