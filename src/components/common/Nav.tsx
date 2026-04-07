@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import CustomButton from "../ui/customButton/CustomButton";
+import XIcon from "../../assets/XIcon";
+import MenuIcon from "../../assets/MenuIcon";
 
 const sections = [
   { id: "intro", label: "Intro" },
@@ -299,9 +301,9 @@ export default function Nav() {
         <button
           type="button"
           onClick={() => setIsOpen(true)}
-          className="h-14 w-80 px-2.5 rounded-lg bg-theme-white/80 backdrop-blur-sm cursor-pointer flex justify-between items-center"
+          className="h-14 w-80 px-2.5 rounded-lg bg-theme-white/80 border border-theme-blue backdrop-blur-sm cursor-pointer flex justify-between items-center"
         >
-          <div className="h-7 w-7 border-4 border-theme-white rounded-lg" />
+          <div className="h-7 w-7 border-4 border-theme-blue rounded-lg" />
 
           <div className="relative h-6 overflow-hidden flex items-center justify-center">
             <p
@@ -312,7 +314,7 @@ export default function Nav() {
             </p>
           </div>
 
-          <div className="h-7 w-7 border-4 border-theme-white rounded-lg" />
+          <MenuIcon color="#6984a9" />
         </button>
       </div>
 
@@ -321,8 +323,10 @@ export default function Nav() {
         ref={closeButtonRef}
         type="button"
         onClick={() => setIsOpen(false)}
-        className="fixed z-100 bottom-2.5 left-1/2 -translate-x-1/2 h-14 w-14 rounded-lg bg-theme-white/80 backdrop-blur-sm cursor-pointer opacity-0 pointer-events-none"
-      />
+        className="fixed z-100 bottom-2.5 left-1/2 -translate-x-1/2 h-14 w-14 rounded-lg bg-theme-white/80 backdrop-blur-sm cursor-pointer opacity-0 pointer-events-none flex items-center justify-center"
+      >
+        <XIcon color="black" />
+      </button>
     </>
   );
 }

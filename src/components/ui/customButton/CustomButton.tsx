@@ -1,3 +1,5 @@
+import ArrowIcon from "../../../assets/ArrowIcon";
+
 type ButtonProps = {
   text?: string;
   onClick?: () => void;
@@ -20,7 +22,7 @@ export default function CustomButton({
       </div>
 
       <div className="border-4 border-theme-blue rounded-lg w-12 flex items-center justify-center">
-        f
+        <ArrowIcon color="#6984a9" size={20} className="-rotate-45"/>
       </div>
     </button>
   );
