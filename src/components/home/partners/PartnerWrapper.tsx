@@ -142,7 +142,13 @@ export default function PartnerWrapper({
 
   return (
     <div ref={sectionRef} className="contents">
-      <div className="relative shrink-0 z-10 xl:mx-auto xl:mt-32 w-fit overflow-hidden">
+      {/* Títulos — arriba en móvil/tablet, columna izquierda en xl */}
+      <div
+        className="
+        relative z-10 w-fit mb-6
+        xl:px-0 xl:pt-0 xl:mx-auto xl:mt-32
+      "
+      >
         <h3
           ref={partneringTitleRef}
           className="text-4xl xl:text-6xl"
@@ -159,7 +165,15 @@ export default function PartnerWrapper({
         </h3>
       </div>
 
-      <div className="w-full relative shrink-0 xl:w-[70%] xl:ml-auto xl:mr-16 overflow-hidden">
+      {/* Cards — debajo en móvil/tablet, columna derecha en xl */}
+      <div
+        className="
+        relative flex-1 min-h-0
+        xl:w-[70%] xl:ml-auto xl:mr-16
+        overflow-hidden
+      "
+      >
+        {/* Array 1: Partners */}
         <div ref={partnersWrapRef} className="absolute inset-0">
           <div className="relative w-full h-full">
             {partnerItems.map((item, i) => (
@@ -174,6 +188,7 @@ export default function PartnerWrapper({
           </div>
         </div>
 
+        {/* Array 2: Members */}
         <div ref={membersWrapRef} className="absolute inset-0">
           <div className="relative w-full h-full">
             {memberItems.map((item, i) => (

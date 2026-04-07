@@ -17,7 +17,7 @@ export default function Partners() {
   return (
     <section
       id="partners-section"
-      className="relative h-svh overflow-hidden xl:grid xl:grid-cols-2 xl:justify-center"
+      className="relative h-svh overflow-hidden flex flex-col xl:grid xl:grid-cols-2 xl:justify-center"
     >
       <PartnerWrapper partnerItems={partners} memberItems={members} />
     </section>
