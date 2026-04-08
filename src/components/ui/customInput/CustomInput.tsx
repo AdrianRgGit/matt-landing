@@ -1,5 +1,3 @@
-import React from "react";
-
 type CustomInputProps = {
   label: string;
   name: string;

@@ -1,5 +1,3 @@
-import React from "react";
-
 type CustomTextareaProps = {
   label: string;
   name: string;
