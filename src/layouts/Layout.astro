@@ -1,5 +1,6 @@
 ---
 import Footer from "../components/common/Footer.astro";
+import Intro from "../components/common/Intro";
 import Nav from "../components/common/Nav";
 import SlidePanel from "../components/common/contactForm/SlidePanel";
 import "../styles/global.css";
@@ -17,9 +18,13 @@ import "../styles/global.css";
   </head>
 
   <body>
+    <Intro client:load />
+
     <Nav client:load />
     <SlidePanel client:load />
+
     <slot />
+
     <Footer />
   </body>
 </html>
