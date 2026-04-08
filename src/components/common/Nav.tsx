@@ -4,6 +4,7 @@ import gsap from "gsap";
 import CustomButton from "../ui/customButton/CustomButton";
 import XIcon from "../../assets/XIcon";
 import MenuIcon from "../../assets/MenuIcon";
+import { openPanel } from "../../stores/panelStores";
 
 const sections = [
   { id: "intro", label: "Intro" },
@@ -288,7 +289,7 @@ export default function Nav() {
             </a>
           </nav>
 
-          <CustomButton className="mx-auto" />
+          <CustomButton onClick={openPanel} className="mx-auto" />
         </div>
       </div>
 
