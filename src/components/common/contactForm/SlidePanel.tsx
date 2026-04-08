@@ -3,6 +3,8 @@ import { useStore } from "@nanostores/react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { closePanel, isPanelOpen } from "../../../stores/panelStores";
+import ContactForm from "./ContactForm";
+import XIcon from "../../../assets/XIcon";
 
 export default function SlidePanel() {
   const isOpen = useStore(isPanelOpen);
@@ -44,22 +46,31 @@ export default function SlidePanel() {
 
   return (
     <>
+      {/* Overlay */}
       <div
         ref={overlayRef}
         onClick={closePanel}
-        className="fixed inset-0 bg-black/40 z-40 opacity-0 pointer-events-none"
+        className="fixed inset-0 z-50 bg-theme-black/40 opacity-0 pointer-events-none"
       />
-      <div
+
+      <aside
         ref={panelRef}
-        className="fixed top-0 right-0 h-full w-[420px]
-                   bg-white z-50 translate-x-full shadow-2xl"
+        className="fixed p-2.5 top-0 right-0 h-full w-[70%] bg-theme-white z-100 translate-x-full"
       >
-        <div className="flex items-center justify-between p-6 border-b">
-          <h2 className="text-lg font-medium">Panel</h2>
-          <button onClick={closePanel}>✕</button>
+        <div className="relative w-full h-full">
+          <h2 className="">Panel</h2>
+          <button
+            onClick={closePanel}
+            className="fixed top-5 right-5 bg-theme-blue p-2 rounded-lg cursor-pointer"
+          >
+            <XIcon color="white" />
+          </button>
+
+          <div className="p-6">
+            <ContactForm />
+          </div>
         </div>
-        <div className="p-6">{/* formulario aquí */}</div>
-      </div>
+      </aside>
     </>
   );
 }

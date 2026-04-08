@@ -254,7 +254,7 @@ export default function Nav() {
       {/* Menú expandido */}
       <div
         ref={containerRef}
-        className="w-80 fixed z-100 bottom-20 left-1/2 -translate-x-1/2 opacity-0 pointer-events-none"
+        className="w-80 fixed z-90 bottom-20 left-1/2 -translate-x-1/2 opacity-0 pointer-events-none"
         style={{ transformOrigin: "bottom center" }}
       >
         <div
@@ -289,7 +289,13 @@ export default function Nav() {
             </a>
           </nav>
 
-          <CustomButton onClick={openPanel} className="mx-auto" />
+          <CustomButton
+            onClick={() => {
+              openPanel();
+              setIsOpen(false);
+            }}
+            className="mx-auto"
+          />
         </div>
       </div>
 
