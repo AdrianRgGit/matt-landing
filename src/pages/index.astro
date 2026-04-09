@@ -1,10 +1,22 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Hero from "../components/home/hero/Hero";
+import Problem from "../components/home/problem/Problem.astro";
+import Solution from "../components/home/solution/Solution.astro";
+import Benefits from "../components/home/benefits/Benefits.astro";
+import Value from "../components/home/value/Value.astro";
+import Partners from "../components/home/partners/Partners";
+import AboutUs from "../components/home/aboutUs/AboutUs.astro";
+import OurPeople from "../components/home/ourPeople/OurPeople";
 ---
 
 <Layout>
-  <h1 class="text-4xl text-font-blue font-spacegrotesk-light">Home</h1>
-  <h1 class="text-4xl text-font-blue font-spacegrotesk">Home</h1>
-  <h1 class="text-4xl text-font-blue font-spacegrotesk-semibold">Home</h1>
-  <h1 class="text-4xl text-font-blue font-spacegrotesk-bold">Home</h1>
+  <Hero client:load />
+  <Problem />
+  <Solution />
+  <Benefits />
+  <Value />
+  <Partners client:load />
+  <AboutUs />
+  <OurPeople client:load />
 </Layout>

@@ -1,9 +1,13 @@
 ---
+import Footer from "../components/common/Footer.astro";
+import Intro from "../components/common/Intro";
+import Nav from "../components/common/Nav";
+import SlidePanel from "../components/common/contactForm/SlidePanel";
 import "../styles/global.css";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -14,6 +18,13 @@ import "../styles/global.css";
   </head>
 
   <body>
+    <Intro client:load />
+
+    <Nav client:load />
+    <SlidePanel client:load />
+
     <slot />
+
+    <Footer />
   </body>
 </html>
