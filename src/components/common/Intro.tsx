@@ -51,7 +51,7 @@ export default function Intro() {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-theme-white "
+      className="fixed inset-0 z-100 flex items-center justify-center bg-theme-white"
     >
       <div className="flex items-center gap-4">
         <div
