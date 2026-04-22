@@ -223,8 +223,8 @@ export default function Hero() {
       <div
         ref={textRef}
         className="
-          absolute left-2.5 top-32 z-20 space-y-20 pr-2.5 mix-blend-difference
-          md:left-6 md:top-6 md:max-w-104 md:space-y-8
+          absolute left-2.5 top-40 z-20 space-y-20 pr-2.5 mix-blend-difference
+          md:left-6 md:top-40 md:max-w-160 md:space-y-8
           xl:left-25 xl:top-1/2 xl:max-w-225 xl:-translate-y-1/2 xl:space-y-14
         "
       >
@@ -285,8 +285,8 @@ export default function Hero() {
       <div
         ref={buttonRef}
         className="
-          absolute bottom-6 right-2.5 z-30
-          md:bottom-8 md:right-6
+          absolute bottom-3 right-2.5 z-30
+          md:bottom-4 md:right-6
           xl:bottom-5 xl:right-10
         "
       >
