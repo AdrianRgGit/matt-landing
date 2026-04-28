@@ -76,13 +76,13 @@ export default function SlidePanel() {
 
           <div className="relative w-full min-h-full">
             <div className="space-y-4 pr-16">
-              <h2 className="text-6xl">Partner with us</h2>
-              <p className="ml-50 max-w-sm font-spacegrotesk-light">
+              <h2 className="text-3xl md:text-4xl xl:text-6xl">Partner with us</h2>
+              <p className="xl:ml-50 xl:max-w-sm font-spacegrotesk-light">
                 Share your plans and we'll follow up with a detailed proposal.
               </p>
             </div>
 
-            <div className="mt-12 w-1/2 ml-auto">
+            <div className="mt-12 xl:w-1/2 xl:ml-auto">
               <ContactForm />
             </div>
           </div>

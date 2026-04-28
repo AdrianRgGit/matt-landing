@@ -1,3 +1,4 @@
+import CustomButton from "../../ui/customButton/CustomButton";
 import CustomInput from "../../ui/customInput/CustomInput";
 import { CustomSelect } from "../../ui/customSelect/CustomSelect";
 import { CustomTextarea } from "../../ui/customTextarea/CustomTextarea";
@@ -5,8 +6,6 @@ import { CustomTextarea } from "../../ui/customTextarea/CustomTextarea";
 export default function ContactForm() {
   return (
     <form>
-      <p>Formulario</p>
-
       <div className="space-y-4 mt-6">
         <CustomInput label="Full Name" name="fullName" required />
         <CustomInput label="Email" name="email" type="email" required />
@@ -23,6 +22,8 @@ export default function ContactForm() {
         />
 
         <CustomTextarea label="Message" name="message" required />
+
+        <CustomButton type="submit" text="Send us a message" className="ml-auto"/>
       </div>
     </form>
   );

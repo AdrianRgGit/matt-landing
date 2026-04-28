@@ -2,18 +2,20 @@ import ArrowIcon from "../../../assets/ArrowIcon";
 
 type ButtonProps = {
   text?: string;
+  type?: "button" | "submit" | "reset";
   onClick?: () => void;
   className?: string;
 };
 
 export default function CustomButton({
   text = "Partner with us",
+  type = "button",
   onClick,
   className = "",
 }: ButtonProps) {
   return (
     <button
-      type="button"
+      type={type}
       onClick={onClick}
       className={`flex cursor-pointer group
         ${className}`}
