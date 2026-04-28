@@ -15,14 +15,33 @@ export default function CustomButton({
     <button
       type="button"
       onClick={onClick}
-      className={`flex cursor-pointer group ${className}`}
+      className={`flex cursor-pointer group
+        ${className}`}
     >
-      <div className="bg-theme-blue w-fit p-4 rounded-lg group-hover:bg-theme-blue/80 transition-colors duration-200">
-        <span className="font-spacegrotesk-light text-font-white">{text}</span>
+      <div
+        className="w-fit p-3 flex items-center bg-theme-blue rounded-md transition-colors duration-200 group-hover:bg-theme-blue/80
+          md:p-3.5
+          xl:p-4 xl:rounded-lg"
+      >
+        <span
+          className="text-sm font-spacegrotesk-light text-font-white
+            xl:text-base"
+        >
+          {text}
+        </span>
       </div>
 
-      <div className="border-4 border-theme-blue rounded-lg w-12 flex items-center justify-center">
-        <ArrowIcon color="#6984a9" size={20} className="-rotate-45"/>
+      <div
+        className="w-11 flex items-center justify-center self-stretch border-[3px] border-theme-blue rounded-md
+          md:w-12
+          xl:w-14 xl:border-4 xl:rounded-lg"
+      >
+        <ArrowIcon
+          color="#6984a9"
+          size={20}
+          className="w-4 -rotate-45
+            xl:w-5"
+        />
       </div>
     </button>
   );
