@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CustomOverlay from "../../ui/customOverlay/CustomOverlay";
 import CustomButton from "../../ui/customButton/CustomButton";
+import { openPanel } from "../../../stores/panelStores";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -292,7 +293,9 @@ export default function Hero() {
       >
         <CustomButton
           text="Partner with us"
-          onClick={() => console.log("Click!")}
+          onClick={() => {
+            openPanel();
+          }}
         />
       </div>
     </section>

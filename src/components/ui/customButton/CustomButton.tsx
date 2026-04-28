@@ -39,7 +39,7 @@ export default function CustomButton({
         <ArrowIcon
           color="#6984a9"
           size={20}
-          className="w-4 -rotate-45
+          className="w-4 h-auto -rotate-45
             xl:w-5"
         />
       </div>
