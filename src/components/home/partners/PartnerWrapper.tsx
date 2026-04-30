@@ -39,7 +39,8 @@ export default function PartnerWrapper({
         if (cards.length === 0) return { cards: [], totalTravel: 0 };
 
         const cardHeight = cards[0].offsetHeight;
-        const step = cardHeight - 60;
+        const gap = window.innerWidth >= 1280 ? 32 : 24;
+        const step = cardHeight + gap;
         const colOffset = step / 2;
         const colIndex = { left: 0, right: 0 };
 
@@ -87,6 +88,8 @@ export default function PartnerWrapper({
           pin: true,
           scrub: 1,
           anticipatePin: 1,
+          invalidateOnRefresh: true,
+          refreshPriority: -10,
         },
       });
 
@@ -133,6 +136,11 @@ export default function PartnerWrapper({
         { y: `-=${memberTravel}`, ease: "none", stagger: 0, duration: 1.8 },
         2.1,
       );
+
+      requestAnimationFrame(() => {
+        ScrollTrigger.sort();
+        ScrollTrigger.refresh();
+      });
     },
     {
       scope: sectionRef,
@@ -179,7 +187,7 @@ export default function PartnerWrapper({
             {partnerItems.map((item, i) => (
               <div
                 key={i}
-                className={`partner-card absolute ${i % 2 !== 0 ? "right-0" : "left-0"}`}
+                className={`absolute ${i % 2 !== 0 ? "right-0" : "left-0"}`}
                 style={{ top: 0 }}
               >
                 {item}
@@ -194,7 +202,7 @@ export default function PartnerWrapper({
             {memberItems.map((item, i) => (
               <div
                 key={i}
-                className={`partner-card absolute ${i % 2 !== 0 ? "right-0" : "left-0"}`}
+                className={`absolute ${i % 2 !== 0 ? "right-0" : "left-0"}`}
                 style={{ top: 0 }}
               >
                 {item}
