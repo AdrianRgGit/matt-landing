@@ -5,31 +5,31 @@ export default function Partners() {
   const partners = [
     <PartnerCard
       key="p1"
-      name="H2Grid"
+      name="Matt"
       category="Electrolyzer systems"
       variant="grid"
     />,
     <PartnerCard
       key="p2"
-      name="Catalyx"
+      name="Matt"
       category="Catalyst scale-up"
       variant="molecule"
     />,
     <PartnerCard
       key="p3"
-      name="StackForge"
+      name="Matt"
       category="Industrial stacks"
       variant="stack"
     />,
     <PartnerCard
       key="p4"
-      name="VoltMatter"
+      name="Matt"
       category="Power materials"
       variant="spark"
     />,
     <PartnerCard
       key="p5"
-      name="AquaCell"
+      name="Matt"
       category="Water electrolysis"
       variant="cell"
     />,
@@ -37,43 +37,43 @@ export default function Partners() {
   const members = [
     <PartnerCard
       key="m1"
-      name="Hydrogen Valley"
+      name="Matt"
       category="Innovation cluster"
       variant="wave"
     />,
     <PartnerCard
       key="m2"
-      name="ElectroLab"
+      name="Matt"
       category="Testing network"
       variant="cell"
     />,
     <PartnerCard
       key="m3"
-      name="Clean Molecule"
+      name="Matt"
       category="Industry alliance"
       variant="molecule"
     />,
     <PartnerCard
       key="m4"
-      name="NetZero Works"
+      name="Matt"
       category="Climate industry"
       variant="spark"
     />,
     <PartnerCard
       key="m5"
-      name="Green Ports Hub"
+      name="Matt"
       category="Maritime hydrogen"
       variant="wave"
     />,
     <PartnerCard
       key="m6"
-      name="Materials Loop"
+      name="Matt"
       category="Circular materials"
       variant="grid"
     />,
     <PartnerCard
       key="m7"
-      name="H2 Foundry"
+      name="Matt"
       category="Scale-up network"
       variant="stack"
     />,

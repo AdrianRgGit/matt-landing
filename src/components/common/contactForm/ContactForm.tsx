@@ -9,7 +9,7 @@ export default function ContactForm() {
       <div className="space-y-4 mt-6">
         <CustomInput label="Full Name" name="fullName" required />
         <CustomInput label="Email" name="email" type="email" required />
-        <CustomInput label="Company" name="company" required />
+        <CustomInput label="Project" name="project" required />
         <CustomSelect
           label="Area of interest"
           name="interest"
