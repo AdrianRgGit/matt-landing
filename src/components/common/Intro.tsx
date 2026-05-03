@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
+const INTRO_COMPLETE_EVENT = "matt:intro-complete";
+
 export default function Intro() {
   const [visible, setVisible] = useState(true);
 
@@ -9,8 +11,12 @@ export default function Intro() {
   const textRef = useRef(null);
 
   useEffect(() => {
+    document.body.classList.add("intro-loading");
+
     const tl = gsap.timeline({
       onComplete: () => {
+        document.body.classList.remove("intro-loading");
+        window.dispatchEvent(new Event(INTRO_COMPLETE_EVENT));
         setVisible(false);
       },
     });
@@ -44,6 +50,11 @@ export default function Intro() {
         duration: 0.8,
         ease: "power2.inOut",
       });
+    return () => {
+      tl.kill();
+      document.body.classList.remove("intro-loading");
+      window.dispatchEvent(new Event(INTRO_COMPLETE_EVENT));
+    };
   }, []);
 
   if (!visible) return null;
@@ -51,7 +62,7 @@ export default function Intro() {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-theme-white "
+      className="fixed inset-0 z-100 flex items-center justify-center bg-theme-white"
     >
       <div className="flex items-center gap-4">
         <div

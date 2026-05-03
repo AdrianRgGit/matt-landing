@@ -3,34 +3,34 @@ import NameTag from "./NameTag";
 
 const TEAM = [
   {
-    name: "Adrián Ramírez Galera",
-    role: "CTO & Co-founder",
-    image: "/media/home/mockup-img-1.webp",
+    name: "Claudia Ferrer Molina",
+    role: "Chief Materials Scientist",
+    image: "/media/home/team-claudia-ferrer.webp",
   },
   {
-    name: "Manolo Martínez Escobar",
-    role: "CEO & Co-founder",
-    image: "/media/home/mockup-img-2.webp",
+    name: "Diego Soler Navarro",
+    role: "Process Scale-up Lead",
+    image: "/media/home/team-diego-soler.webp",
   },
   {
-    name: "Adrián Ramírez Galera",
-    role: "CTO & Co-founder",
-    image: "/media/home/mockup-img-1.webp",
+    name: "Nora Vidal Torres",
+    role: "Product Engineering Lead",
+    image: "/media/home/team-nora-vidal.webp",
   },
   {
-    name: "Manolo Martínez Escobar",
-    role: "CEO & Co-founder",
-    image: "/media/home/mockup-img-2.webp",
+    name: "Hugo Martín Sáez",
+    role: "Partnerships & Impact Director",
+    image: "/media/home/team-hugo-martin.webp",
   },
   {
-    name: "Adrián Ramírez Galera",
-    role: "CTO & Co-founder",
-    image: "/media/home/mockup-img-1.webp",
+    name: "Pablo Serra Llorens",
+    role: "CTO & Systems Architect",
+    image: "/media/home/team-technical-founder.webp",
   },
   {
-    name: "Manolo Martínez Escobar",
-    role: "CEO & Co-founder",
-    image: "/media/home/mockup-img-2.webp",
+    name: "Lucas Marín Ortega",
+    role: "Operations & Strategy Lead",
+    image: "/media/home/team-business-founder.webp",
   },
 ];
 
