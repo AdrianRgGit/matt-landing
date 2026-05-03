@@ -15,10 +15,14 @@ const sections = [
   { id: "aboutus", label: "About" },
 ];
 
+const INTRO_COMPLETE_EVENT = "matt:intro-complete";
+
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   const [currentSection, setCurrentSection] = useState("Intro");
+  const [isIntroLoading, setIsIntroLoading] = useState(true);
 
+  const navRootRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const menuContentRef = useRef<HTMLDivElement>(null);
@@ -26,6 +30,33 @@ export default function Nav() {
   const pillRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const currentSectionRef = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    if (!navRootRef.current) return;
+
+    gsap.set(navRootRef.current, { autoAlpha: 0 });
+
+    const showNav = () => {
+      gsap.to(navRootRef.current, {
+        autoAlpha: 1,
+        duration: 0.6,
+        ease: "power2.out",
+        onComplete: () => {
+          setIsIntroLoading(false);
+        },
+      });
+    };
+
+    if (!document.body.classList.contains("intro-loading")) {
+      showNav();
+    }
+
+    window.addEventListener(INTRO_COMPLETE_EVENT, showNav);
+
+    return () => {
+      window.removeEventListener(INTRO_COMPLETE_EVENT, showNav);
+    };
+  }, []);
 
   useGSAP(
     () => {
@@ -243,7 +274,12 @@ export default function Nav() {
   }, [currentSection]);
 
   return (
-    <>
+    <div
+      ref={navRootRef}
+      data-nav-root
+      className={isIntroLoading ? "pointer-events-none" : ""}
+      style={isIntroLoading ? { opacity: 0, visibility: "hidden" } : undefined}
+    >
       {/* Overlay */}
       <div
         ref={overlayRef}
@@ -334,6 +370,6 @@ export default function Nav() {
       >
         <XIcon color="black" />
       </button>
-    </>
+    </div>
   );
 }
