@@ -270,7 +270,7 @@ export default function Hero() {
           playsInline
           preload="auto"
         >
-          <source src="/media/home/hero-vid.webm" type="video/webm" />
+          <source src="/media/home/hero-vid.mp4" type="video/webm" />
           <source src="/media/home/hero-vid.mp4" type="video/mp4" />
           Tu navegador no soporta el video.
         </video>

@@ -137,7 +137,7 @@ export default function Hero() {
             loop
             playsInline
           >
-            <source src="/media/home/hero-vid.webm" type="video/webm" />
+            <source src="/media/home/hero-vid.mp4" type="video/webm" />
             <source src="/media/home/hero-vid.mp4" type="video/mp4" />
           </video>
 
@@ -185,7 +185,7 @@ export default function Hero() {
             playsInline
             onClick={(e) => e.stopPropagation()} // evita cerrar al clickar el vídeo
           >
-            <source src="/media/home/hero-vid-full.webm" type="video/webm" />
+            <source src="/media/home/hero-vid-full.mp4" type="video/webm" />
             <source src="/media/home/hero-vid-full.mp4" type="video/mp4" />
           </video>
 
