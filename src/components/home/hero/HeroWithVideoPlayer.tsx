@@ -137,8 +137,8 @@ export default function Hero() {
             loop
             playsInline
           >
-            <source src="/media/home/hero-vid.mp4" type="video/webm" />
-            <source src="/media/home/hero-vid.mp4" type="video/mp4" />
+            
+            <source src="https://4cs0hh1kvklgjnqz.public.blob.vercel-storage.com/matt/hero-vid.mp4" type="video/mp4" />
           </video>
 
           {/* Icono play — aparece en hover */}
